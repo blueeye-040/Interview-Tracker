@@ -18,7 +18,7 @@ async function fetchFirebaseConfig() {
     })
 
     const data = await response.json()
-    console.log("Firebase config response:", data.config)
+    
 
     const firebaseConfig = data.config
     // Initialize Firebase using the fetched config
