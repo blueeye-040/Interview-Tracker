@@ -1,0 +1,337 @@
+{
+    "version": "2.0",
+    "exportDate": "2024-01-20T10:30:00.000Z",
+    "problems": {
+      "Array & String": [
+        {
+          "title": "Two Sum",
+          "link": "https://leetcode.com/problems/two-sum/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(n)",
+          "tags": ["Hash Map", "Array"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-15T08:00:00.000Z"
+        },
+        {
+          "title": "Valid Anagram",
+          "link": "https://leetcode.com/problems/valid-anagram/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Hash Map", "String", "Sorting"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-16T09:15:00.000Z"
+        },
+        {
+          "title": "Group Anagrams",
+          "link": "https://leetcode.com/problems/group-anagrams/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n * k log k)",
+          "spaceComplexity": "O(n * k)",
+          "tags": ["Hash Map", "String", "Sorting"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-14T14:30:00.000Z"
+        },
+        {
+          "title": "Longest Substring Without Repeating Characters",
+          "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(min(m, n))",
+          "tags": ["Sliding Window", "Hash Set", "String"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-13T11:45:00.000Z"
+        },
+        {
+          "title": "Valid Palindrome",
+          "link": "https://leetcode.com/problems/valid-palindrome/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Two Pointers", "String"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-18T08:45:00.000Z"
+        }
+      ],
+      "Dynamic Programming": [
+        {
+          "title": "Climbing Stairs",
+          "link": "https://leetcode.com/problems/climbing-stairs/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Dynamic Programming", "Math"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-17T16:20:00.000Z"
+        },
+        {
+          "title": "House Robber",
+          "link": "https://leetcode.com/problems/house-robber/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Dynamic Programming", "Array"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-16T13:10:00.000Z"
+        },
+        {
+          "title": "Coin Change",
+          "link": "https://leetcode.com/problems/coin-change/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(amount * coins)",
+          "spaceComplexity": "O(amount)",
+          "tags": ["Dynamic Programming", "BFS"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-15T10:25:00.000Z"
+        },
+        {
+          "title": "Longest Increasing Subsequence",
+          "link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n²)",
+          "spaceComplexity": "O(n)",
+          "tags": ["Dynamic Programming", "Binary Search"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-12T11:30:00.000Z"
+        }
+      ],
+      "Linked List": [
+        {
+          "title": "Reverse Linked List",
+          "link": "https://leetcode.com/problems/reverse-linked-list/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Linked List", "Recursion"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-18T09:30:00.000Z"
+        },
+        {
+          "title": "Merge Two Sorted Lists",
+          "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n + m)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Linked List", "Two Pointers", "Recursion"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-17T15:45:00.000Z"
+        },
+        {
+          "title": "Linked List Cycle",
+          "link": "https://leetcode.com/problems/linked-list-cycle/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Linked List", "Two Pointers"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-16T12:15:00.000Z"
+        },
+        {
+          "title": "Remove Nth Node From End of List",
+          "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Linked List", "Two Pointers"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-15T14:20:00.000Z"
+        }
+      ],
+      "Binary Tree": [
+        {
+          "title": "Maximum Depth of Binary Tree",
+          "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(h)",
+          "tags": ["Binary Tree", "DFS", "Recursion"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-18T14:20:00.000Z"
+        },
+        {
+          "title": "Same Tree",
+          "link": "https://leetcode.com/problems/same-tree/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(h)",
+          "tags": ["Binary Tree", "DFS", "Recursion"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-17T11:30:00.000Z"
+        },
+        {
+          "title": "Binary Tree Inorder Traversal",
+          "link": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(h)",
+          "tags": ["Binary Tree", "DFS", "Stack"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-16T16:45:00.000Z"
+        },
+        {
+          "title": "Validate Binary Search Tree",
+          "link": "https://leetcode.com/problems/validate-binary-search-tree/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(h)",
+          "tags": ["Binary Tree", "DFS", "BST"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-14T13:15:00.000Z"
+        }
+      ],
+      "Graph": [
+        {
+          "title": "Number of Islands",
+          "link": "https://leetcode.com/problems/number-of-islands/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(m * n)",
+          "spaceComplexity": "O(m * n)",
+          "tags": ["Graph", "DFS", "BFS", "Matrix"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-14T13:20:00.000Z"
+        },
+        {
+          "title": "Clone Graph",
+          "link": "https://leetcode.com/problems/clone-graph/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(V + E)",
+          "spaceComplexity": "O(V)",
+          "tags": ["Graph", "DFS", "BFS", "Hash Map"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-13T10:15:00.000Z"
+        },
+        {
+          "title": "Course Schedule",
+          "link": "https://leetcode.com/problems/course-schedule/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(V + E)",
+          "spaceComplexity": "O(V + E)",
+          "tags": ["Graph", "DFS", "Topological Sort"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-12T09:45:00.000Z"
+        }
+      ],
+      "Two Pointers": [
+        {
+          "title": "3Sum",
+          "link": "https://leetcode.com/problems/3sum/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n²)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Two Pointers", "Array", "Sorting"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-12T14:30:00.000Z"
+        },
+        {
+          "title": "Container With Most Water",
+          "link": "https://leetcode.com/problems/container-with-most-water/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(1)",
+          "tags": ["Two Pointers", "Array", "Greedy"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-15T10:20:00.000Z"
+        }
+      ],
+      "Stack": [
+        {
+          "title": "Valid Parentheses",
+          "link": "https://leetcode.com/problems/valid-parentheses/",
+          "difficulty": "Easy",
+          "solution": "",
+          "timeComplexity": "O(n)",
+          "spaceComplexity": "O(n)",
+          "tags": ["Stack", "String"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-18T16:30:00.000Z"
+        },
+        {
+          "title": "Min Stack",
+          "link": "https://leetcode.com/problems/min-stack/",
+          "difficulty": "Medium",
+          "solution": "",
+          "timeComplexity": "O(1)",
+          "spaceComplexity": "O(n)",
+          "tags": ["Stack", "Design"],
+          "attempts": 0,
+          "lastSolved": "",
+          "notes": "",
+          "dateAdded": "2024-01-17T12:45:00.000Z"
+        }
+      ]
+    },
+    "goals": {
+      "daily": 2,
+      "weekly": 10,
+      "targetDate": "2024-06-01"
+    }
+  }

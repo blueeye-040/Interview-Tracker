@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DSA Tracker 👾</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Loading your progress...</p>
+    </div>
+
+    <!-- Login Page -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>🚀 DSA Tracker</h2>
+                <p>Track your coding journey</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <span class="input-icon">👤</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="input-icon">🔒</span>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Login</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-container" id="appContainer">
+        <!-- Navigation Header -->
+        <nav class="nav-header">
+            <div class="nav-brand">
+                <h1>🚀 DSA Tracker</h1>
+            </div>
+            
+            <div class="nav-menu">
+                <button class="nav-item active" onclick="window.app.showPage('dashboard')" data-page="dashboard">
+                    📊 Dashboard
+                </button>
+                <button class="nav-item" onclick="window.app.showPage('categories')" data-page="categories">
+                    📚 Categories
+                </button>
+                <button class="nav-item" onclick="window.app.showPage('problems')" data-page="problems">
+                    💻 Problems
+                </button>
+                <button class="nav-item" onclick="window.app.showPage('analytics')" data-page="analytics">
+                    📈 Analytics
+                </button>
+            </div>
+
+            <div class="nav-actions">
+                <span class="user-welcome">Welcome, <span id="currentUser"></span></span>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <div class="page-content" id="dashboardPage">
+            <div class="page-header">
+                <h2>📊 Dashboard Overview</h2>
+                <p>Track your coding progress and achievements</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-number" id="totalProblems">0</span>
+                        <span class="stat-label">Total Problems</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <span class="stat-number" id="solvedProblems">0</span>
+                        <span class="stat-label">Solved</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-content">
+                        <span class="stat-number" id="progressPercent">0%</span>
+                        <span class="stat-label">Progress</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-content">
+                        <span class="stat-number" id="currentStreak">0</span>
+                        <span class="stat-label">Day Streak</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <span class="stat-number" id="totalScore">0</span>
+                        <span class="stat-label">Score</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="dashboard-section">
+                <h3>📈 Progress Overview</h3>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0 / 0 problems solved</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-section">
+                <h3>🕒 Recent Activity</h3>
+                <div class="recent-activity" id="recentActivity">
+                    <p class="no-activity">No recent activity</p>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-section">
+                <h3>⚡ Quick Actions</h3>
+                <div class="quick-actions">
+                    <button class="action-card" onclick="window.app.addProblem()">
+                        <div class="action-icon">➕</div>
+                        <div class="action-text">Add Problem</div>
+                    </button>
+                    <button class="action-card" onclick="window.app.showGoals()">
+                        <div class="action-icon">🎯</div>
+                        <div class="action-text">Set Goals</div>
+                    </button>
+                    <button class="action-card" onclick="window.app.downloadJSON()">
+                        <div class="action-icon">📥</div>
+                        <div class="action-text">Export Data</div>
+                    </button>
+                    <button class="action-card" onclick="document.getElementById('importFile').click()">
+                        <div class="action-icon">📤</div>
+                        <div class="action-text">Import Data</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Page -->
+        <div class="page-content" id="categoriesPage" style="display: none;">
+            <div class="page-header">
+                <h2>📚 Problem Categories</h2>
+                <p>Browse problems by topic and difficulty</p>
+            </div>
+
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be populated here -->
+            </div>
+        </div>
+
+        <!-- Problems Page -->
+        <div class="page-content" id="problemsPage" style="display: none;">
+            <div class="page-header">
+                <div class="page-title-section">
+                    <button class="back-btn" id="backToCategories" onclick="window.app.showPage('categories')" style="display: none;">
+                        ← Back to Categories
+                    </button>
+                    <div>
+                        <h2 id="problemsPageTitle">💻 All Problems</h2>
+                        <p id="problemsPageSubtitle">Manage and track your coding problems</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="window.app.addProblem()">➕ Add Problem</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search problems...">
+                    <span class="search-icon">🔍</span>
+                    <button class="clear-search" id="clearSearch" onclick="clearSearch()">✕</button>
+                </div>
+                
+                <div class="filters-row">
+                    <select class="filter-select" id="statusFilter" onchange="filterByStatus()">
+                        <option value="">All Status</option>
+                        <option value="solved">Solved</option>
+                        <option value="unsolved">Unsolved</option>
+                    </select>
+                    
+                    <div class="difficulty-filter">
+                        <button class="difficulty-btn active" onclick="filterByDifficulty(this, '')">All</button>
+                        <button class="difficulty-btn easy" onclick="filterByDifficulty(this, 'Easy')">Easy</button>
+                        <button class="difficulty-btn medium" onclick="filterByDifficulty(this, 'Medium')">Medium</button>
+                        <button class="difficulty-btn hard" onclick="filterByDifficulty(this, 'Hard')">Hard</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problems List -->
+            <div class="problems-container" id="problemsContainer">
+                <!-- Problems will be populated here -->
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">📝</div>
+                <h3>No problems found</h3>
+                <p>Try adjusting your filters or add a new problem to get started.</p>
+                <button class="btn btn-primary" onclick="window.app.addProblem()">Add Your First Problem</button>
+            </div>
+        </div>
+
+        <!-- Analytics Page -->
+        <div class="page-content" id="analyticsPage" style="display: none;">
+            <div class="page-header">
+                <h2>📈 Analytics & Insights</h2>
+                <p>Detailed analysis of your coding progress</p>
+            </div>
+
+            <div class="analytics-content" id="analyticsContent">
+                <!-- Analytics will be populated here -->
+            </div>
+        </div>
+
+        <!-- Hidden file input -->
+        <input type="file" id="importFile" class="file-input" accept=".json" style="display: none;">
+    </div>
+
+    <!-- Add/Edit Problem Modal -->
+    <div class="modal" id="addProblemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Problem</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="addProblemForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Topic *</label>
+                        <input type="text" id="newProblemTopic" placeholder="e.g., Array & String" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Difficulty *</label>
+                        <select id="newProblemDifficulty" required>
+                            <option value="">Select difficulty</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Problem Title *</label>
+                    <input type="text" id="newProblemTitle" placeholder="Problem title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Problem Link *</label>
+                    <input type="url" id="newProblemLink" placeholder="https://leetcode.com/problems/..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" id="newProblemTags" placeholder="Hash Map, Array, Two Pointers (comma separated)">
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Time Complexity</label>
+                        <input type="text" id="newProblemTime" placeholder="e.g., O(n)">
+                    </div>
+                    <div class="form-group">
+                        <label>Space Complexity</label>
+                        <input type="text" id="newProblemSpace" placeholder="e.g., O(1)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Solution Code</label>
+                    <textarea id="newProblemSolution" placeholder="Paste your solution code here..." rows="8"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="newProblemNotes" placeholder="Add your notes, approach, or key insights..." rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Attempts</label>
+                    <input type="number" id="newProblemAttempts" min="0" value="0">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Add Problem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Goals Modal -->
+    <div class="modal" id="goalsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎯 Set Your Goals</h3>
+                <button class="close-btn" onclick="closeGoalsModal()">&times;</button>
+            </div>
+            <div class="goals-content">
+                <div class="goal-item">
+                    <label>Daily Problem Goal</label>
+                    <input type="number" id="dailyGoal" min="1" max="20" value="1">
+                </div>
+                <div class="goal-item">
+                    <label>Weekly Problem Goal</label>
+                    <input type="number" id="weeklyGoal" min="1" max="50" value="7">
+                </div>
+                <div class="goal-item">
+                    <label>Target Completion Date</label>
+                    <input type="date" id="targetDate">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="closeGoalsModal()">Cancel</button>
+                    <button class="btn btn-primary" onclick="saveGoals()">Save Goals</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
