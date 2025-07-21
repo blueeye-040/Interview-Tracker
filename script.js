@@ -18,20 +18,16 @@ async function fetchFirebaseConfig() {
     })
 
     const data = await response.json()
+    console.log("Firebase config response:", data.config)
 
-    if (data.status === "success") {
-      const firebaseConfig = data.config
-      // Initialize Firebase using the fetched config
-      if (typeof firebase !== "undefined") {
-        firebase.initializeApp(firebaseConfig)
-        database = firebase.database()
-        console.log("Firebase initialized securely.")
-      } else {
-        console.warn("Firebase SDK not loaded.")
-      }
-    } else {
-      console.warn("Failed to get Firebase config:", data.message || "Invalid password")
-    }
+    const firebaseConfig = data.config
+    // Initialize Firebase using the fetched config
+    
+    firebase.initializeApp(firebaseConfig)
+    database = firebase.database()
+    console.log("Firebase initialized securely.")
+      
+    
   } catch (error) {
     console.warn("Error fetching Firebase config:", error)
     console.warn("Running in offline mode.")
